@@ -1,0 +1,9 @@
+{
+  "name": "scrutiny-report-ssr",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/scrutiny-report-ssr/src",
+  "projectType": "application",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project scrutiny-report-ssr --web",
+  "targets": {}
+}

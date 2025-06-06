@@ -4,7 +4,10 @@
   "files": [],
   "references": [
     {
-      "path": "./apps/nx-repo-app"
+      "path": "./apps/scrutiny-report-ssr"
+    },
+    {
+      "path": "./apps/scrutiny-report"
     }
   ]
 }

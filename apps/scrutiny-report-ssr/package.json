@@ -1,9 +1,12 @@
 {
-  "name": "@nx-repo/nx-repo-app",
+  "name": "scrutiny-report-ssr",
   "private": true,
   "type": "module",
   "scripts": {},
   "sideEffects": false,
+  "nx": {
+    "name": "scrutiny-report-ssr"
+  },
   "dependencies": {
     "@react-router/node": "^7.2.0",
     "@react-router/serve": "^7.2.0",
