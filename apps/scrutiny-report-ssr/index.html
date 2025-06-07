@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scrutiny Report SSR</title>
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+          Helvetica, Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      nav {
+        background-color: #f0f0f0;
+        padding: 1rem;
+      }
+      nav a {
+        margin-right: 1rem;
+        text-decoration: none;
+        color: #333;
+      }
+      nav a:hover {
+        text-decoration: underline;
+      }
+      .active {
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/app/entry.client.tsx"></script>
+  </body>
+</html>
