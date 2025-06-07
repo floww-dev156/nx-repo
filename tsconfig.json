@@ -8,6 +8,15 @@
     },
     {
       "path": "./apps/scrutiny-report"
+    },
+    {
+      "path": "./libs/design-system"
+    },
+    {
+      "path": "./libs/design-system/icons"
+    },
+    {
+      "path": "./libs/shared/style-guide"
     }
   ]
 }
