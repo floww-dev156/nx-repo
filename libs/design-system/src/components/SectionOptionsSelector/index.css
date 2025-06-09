@@ -1,0 +1,15 @@
+.async-section-options-selector .options-list {
+   padding: 8px 0px !important; /* NOTE: It resolves the FooterLoader spacing issue for AsyncOptionsSelector */
+}
+
+.async-section-options-selector
+   .options-list
+   .section-separator-class-name.section-header-class-name {
+   margin: 0px !important;
+   padding: 11px 16px !important;
+}
+
+.async-section-options-selector .options-list .list-box-option {
+   padding: 9px 10px;
+   border-radius: 8px;
+}

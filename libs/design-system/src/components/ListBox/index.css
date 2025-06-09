@@ -1,0 +1,17 @@
+.scrollbar {
+   overflow: auto;
+   margin-right: 4px;
+}
+.scrollbar::-webkit-scrollbar {
+   width: 8px;
+}
+
+.scrollbar::-webkit-scrollbar-track {
+   border-radius: 8px;
+   background-color: transparent;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+   border-radius: 8px;
+   background-color: #eaecf0;
+}

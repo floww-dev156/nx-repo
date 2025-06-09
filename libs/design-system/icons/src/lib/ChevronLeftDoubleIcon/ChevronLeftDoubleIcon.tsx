@@ -4,7 +4,7 @@ import { colors } from '@nx-repo/shared-style-guide';
 
 import { IconPropsType } from '../types';
 
-const ChevronLeftDoubleIcon = (props: IconPropsType): React.ReactElement => {
+const ChevronLeftDoubleIcon = (props: IconPropsType) => {
   const { height = 20, width = 20, fill = colors['gray-700'] } = props;
 
   return (

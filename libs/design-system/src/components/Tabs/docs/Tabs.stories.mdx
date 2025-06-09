@@ -1,0 +1,92 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import { Tabs } from '../index.ts';
+
+<Meta title="MDX/Tabs" component={Tabs} />
+
+export const Template = (args) => <Tabs {...args} />;
+
+## Tabs
+
+This Doc will gives you a brief description of the Tabs component.
+
+- Tabs allow users to select and switch between them,
+- Enables keyboard navigation via right and left arrow keys
+- Handled ui states like Focus, Hover and Selected
+- exported all react spectrum props, so you can give props which ever possible with react spectrum
+- Supported 'Small' and 'Medium' sizes
+
+Follow below code snippet to use Tabs in **Default Behaviour**.
+
+```tsx
+import { Tabs, TabList, TabPanels } from '@nx-repo/design-system';
+//Note: import Item from your library
+
+return (
+  <Tabs
+    {...props}
+    aria-label="Tab example"
+    maxWidth={776}
+    onSelectionChange={action('onSelectionChange')}
+  >
+    <TabList>
+      <Item key="val1">My details</Item>
+      <Item key="val2">Profile</Item>
+    </TabList>
+    <TabPanels>
+      <Item key="val1">
+        <h1>Tab Body 1</h1>
+      </Item>
+      <Item key="val2">
+        <h1>Tab Body 2</h1>
+      </Item>
+    </TabPanels>
+  </Tabs>
+);
+```
+
+Follow below code snippet to use Tabs in **Controlled Behaviour**.
+
+```tsx
+import { Tabs, TabList, TabPanels } from '@nx-repo/design-system';
+//Note: import Item from your library
+
+export function ControlledTabs() {
+  let tabs = [
+    { id: 1, name: 'Keyboard Settings', children: 'No keyboard detected.' },
+    { id: 2, name: 'Mouse Settings', children: 'No mouse detected.' },
+    { id: 3, name: 'Gamepad Settings', children: 'No gamepad detected' },
+  ];
+  let [tab, setTab] = React.useState<Key>(2);
+
+  return (
+    <div className="">
+      <span id="label-3">Settings (controlled)</span>
+      <Tabs
+        aria-labelledby="label-3"
+        items={tabs}
+        selectedKey={tab}
+        onSelectionChange={(id: Key) => {
+          setTab(id);
+        }}
+      >
+        <TabList>{(item) => <Item>{item.name}</Item>}</TabList>
+        <TabPanels>{(item) => <Item>{item.children}</Item>}</TabPanels>
+      </Tabs>
+    </div>
+  );
+}
+```
+
+### Version 1.0.0
+
+**Follow storybook stories to know about the cases covered in Tabs.**
+
+#### **Compromised things**
+
+- Underscore won't display under the selected/hovered Tab
+- Storybook default case not working
+- Yet to add more stories like controlled behaviour
+
+#### For More Info About Tabs Feature
+
+- [React Spectrum Tabs](https://react-spectrum.adobe.com/react-spectrum/Tabs.html)

@@ -1,0 +1,30 @@
+.selected-options-and-options-list .options-list {
+   padding: 8px 0px !important; /* NOTE: It resolves the FooterLoader spacing issue for AsyncOptionsSelector */
+}
+
+.selected-options-and-options-list .options-list .list-box-option {
+   padding: 9px 10px;
+   border-radius: 8px;
+}
+
+.single-options-list-wrapper .options-list {
+   padding: 8px 0px !important; /* NOTE: It resolves the FooterLoader spacing issue for AsyncOptionsSelector */
+}
+
+.single-options-list-wrapper .options-list .list-box-option {
+   padding: 9px 10px;
+   border-radius: 8px;
+}
+
+.input-and-selected-tags-container::-webkit-scrollbar {
+   width: 8px;
+}
+.input-and-selected-tags-container::-webkit-scrollbar-track {
+   border-radius: 8px;
+   background-color: transparent;
+}
+
+.input-and-selected-tags-container::-webkit-scrollbar-thumb {
+   border-radius: 8px;
+   background-color: var(--gray-slate-200);
+}

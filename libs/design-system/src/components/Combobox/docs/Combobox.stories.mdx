@@ -1,0 +1,153 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+
+import { ComboBox } from '../ComboboxWrapper.tsx';
+
+<Meta title="MDX/ComboBox" component={ComboBox} />
+
+export const SampleComboBox = (args) => <ComboBox {...args} />;
+
+## ComboBox
+
+This Doc will gives you a brief description of the ComboBox component.
+
+**ComboBox Props**
+
+```tsx
+interface ComboBoxProps extends SpectrumComboBoxProps {
+  size?: BasicSize;
+
+  label?: string;
+  hint?: React.ReactNode;
+  errorMessage?: React.ReactNode;
+
+  isRequired?: boolean;
+  autoFocus?: boolean;
+  defaultOpen?: boolean;
+  isDisabled?: boolean;
+  enableCustomTrigger?: boolean;
+
+  inputStartEnhancer?: React.ReactNode;
+  onInputChange?: (value: string) => void;
+  inputClassName?: string;
+  inputPrefixEnhancerContainerClassName?: string;
+  onBlur?: () => void;
+  closeIconContainerClassName?: string;
+  inputValue?: string;
+
+  customOption?: (props: any) => JSX.Element;
+  customTrigger?: () => JSX.Element;
+
+  onSelectionChange?: (key: React.Key) => void;
+  selectedKey?: string;
+  defaultSelectedKey?: string;
+
+  id?: string;
+  dataTestId?: string;
+}
+```
+
+Follow below code snippet to use ComboBox.
+
+```tsx
+import {
+  ComboBox,
+  Item,
+  Section,
+  ComboboxContextProvider,
+  ThemeContextProvider,
+} from '@nx-repo/design-system';
+
+return (
+  <ThemeContextProvider theme={defaultTheme}>
+    <ComboboxContextProvider
+      renderNoItemsView={noItemsView}
+      renderLoadingView={loadingView}
+    >
+      <ComboBox {...props}>
+        <Item key="Item1">Vijayanagaram</Item>
+        <Item key="Item2">Visakhapatnam</Item>
+        <Item key="Item3">Vijayawada</Item>
+        <Item key="Item4">V.kota</Item>
+        <Item key="Item5">Venkatapuram</Item>
+        <Item key="Item6">Vemulawada</Item>
+      </ComboBox>
+    </ComboboxContextProvider>
+  </ThemeContextProvider>
+);
+```
+
+For rendering the `No Items View` and `Loading View` you should wrap the comboBox component with `ComboboxContextProvider` which is exported from `'@nx-repo/design-system'`.
+
+`ComboboxContextProvider` will accept two methods those are `renderNoItemsView` and `renderLoadingView`
+
+Example for rendering `No Items View` and `Loading View`.
+
+```tsx
+export const WithProvider = (props) => {
+  const [inputValue, setInputValue] = useState('Visakhapatnam');
+
+  const noItemsView = () => <p>Custom No Items View</p>;
+  const loadingView = () => <p>Custom Loading View</p>;
+
+  return (
+    <ThemeContextProvider theme={defaultTheme}>
+      <ComboboxContextProvider
+        renderNoItemsView={noItemsView}
+        renderLoadingView={loadingView}
+      >
+        <ComboBox
+          {...props}
+          label={'City'}
+          hint={'This is a hint text to help user.'}
+          inputValue={inputValue}
+          onInputChange={setInputValue}
+          placeholder={'Search'}
+          defaultSelectedKey={'Item2'}
+        >
+          <Item key="Item1">Vijayanagaram</Item>
+          <Item key="Item2">Visakhapatnam</Item>
+          <Item key="Item3">Vijayawada</Item>
+          <Item key="Item4">V.kota</Item>
+          <Item key="Item5">Venkatapuram</Item>
+          <Item key="Item6">Vemulawada</Item>
+        </ComboBox>
+      </ComboboxContextProvider>
+    </ThemeContextProvider>
+  );
+};
+```
+
+**Follow storybook stories to know about the cases in covered in ComboBox.**
+
+### Version 1.0.0
+
+#### **Cases covered**
+
+- Rendering grouped options using sections and items as children.
+- Render `No Items View`, `Loading View` by getting a function in the provider.
+- Exposing `customOption` prop for different variants of options in the comboBox.
+- Exposing `enableCustomTrigger` prop for combo box with custom trigger.
+- Accepting selected key for controlled behavior.
+- Accepting default selected key for uncontrolled behavior.
+- Handling sizing with size prop.
+
+#### **Cases not covered**
+
+- Having one key and selecting another key as the selected key.
+- Not supporting both controlled and uncontrolled behavior by throwing error.
+- Not supporting section title customization (groundwork has to be done here).
+- Selected Value customization.
+- Keyboard navigation
+  - up at the first item - focus on the last item
+  - down at the last item - focus on the first item
+- Fixed popover position styles.
+
+#### **Compromised things**
+
+- In custom trigger after selecting value from options it showing only selected value in options.
+- Placeholder styles are not configured.
+
+## Future Versions plan
+
+- Resolve Compromises
+- Support for Async

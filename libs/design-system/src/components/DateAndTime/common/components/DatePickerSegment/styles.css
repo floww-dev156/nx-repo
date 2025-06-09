@@ -1,0 +1,11 @@
+/* FIXME: need to get colors from design system */
+
+.segment-value + .segment-literal {
+  color:#101828;
+   font-weight: 500;
+  
+}
+
+.segment-value-disabled + .segment-literal{
+  font-weight: 500;
+}

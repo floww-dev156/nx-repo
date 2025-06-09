@@ -1,0 +1,65 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import { DatePicker } from '../index.ts';
+
+<Meta title="MDX/DatePicker" component={DatePicker} />
+
+export const Template = (args) => <DatePicker {...args} />;
+
+## DatePicker
+
+This Doc will gives you a brief description of the DatePicker component.
+
+- DatePickers combine a DateField and a Calendar popover to allow users to enter or select a date
+- Each part of a date value is displayed in an individually editable segment
+- The calendar popup will open by clicking the calendar icon in the date field.
+
+**DatePicker Props**
+
+```tsx
+export interface DatePickerProps<T extends DateValue> {
+  size?: BasicSize;
+  placeholderValue?: T;
+  isReadOnly?: boolean;
+  isDisabled?: boolean;
+  isRequired?: boolean;
+  autoFocus?: boolean;
+  labelText?: string;
+  labelComponent?: ReactNode;
+  descriptionText?: string;
+  descriptionComponent?: ReactNode;
+  errorMessage?: string;
+  errorMessageComponent?: ReactNode;
+  isOpen?: boolean;
+  defaultOpen?: boolean;
+  minValue?: T;
+  mazValue?: T;
+  value?: T;
+  defaultValue?: T;
+  placement?: Placement;
+  isDateUnavailable?: (date: T) => boolean;
+  onChange?: (value: MappedDateValue<T>) => void;
+  onFocus?: (e: React.FocusEvent<Element>) => void;
+  onBlur?: (e: React.FocusEvent<Element>) => void;
+}
+```
+
+Follow below code snippet to use DateField.
+
+```tsx
+import { DatePicker } from '@nx-repo/design-system';
+
+return <DatePicker labelText="Date" defaultValue={parseDate('2023-02-03')} />;
+```
+
+### Version 1.0.0
+
+**Follow storybook stories to know about the cases covered in DatePicker.**
+
+#### **Compromised things**
+
+- DateField format can't be changed, fixed formate is [dd/mm/yyyy]
+- WeeklyDay (like monday- Mo) etc.
+
+#### For More Info About Prop Details
+
+- [React Spectrum DataPicker](https://react-spectrum.adobe.com/react-spectrum/DatePicker.html#props)

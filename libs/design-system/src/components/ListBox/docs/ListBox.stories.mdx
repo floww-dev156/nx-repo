@@ -1,0 +1,56 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import { ListBox } from '../index.ts';
+
+<Meta title="MDX/ListBox" component={ListBox} />
+
+export const Template = (args) => <ListBox {...args} />;
+
+## ListBox
+
+This Doc will gives you a brief description of the ListBox
+component.
+
+Follow below code snippet to use ListBox component.
+
+```tsx
+import { ListBox } from '@nx-repo/design-system';
+
+return (
+  <ThemeContextProvider theme={defaultTheme}>
+    <div
+      style={{
+        display: 'flex',
+        minWidth: '200px',
+        border: '1px solid lightgray',
+        maxHeight: 300,
+      }}
+    >
+      <ListBox flexGrow={1} aria-labelledby="label" items={flatOptions}>
+        {(item) => <Item key={item.name}>{item.name}</Item>}
+      </ListBox>
+    </div>
+  </ThemeContextProvider>
+);
+```
+
+**ListBox Props**
+
+```tsx
+interface ListBoxProps<T> extends SpectrumListBoxProps<T> {
+  customOption?: (props: any) => JSX.Element;
+  listLayoutOptions?: ListLayoutOptions<T>;
+}
+```
+
+### Version 1.0.0
+
+**Follow storybook stories to know about the cases in covered in ListBox**
+
+#### **Compromised things**
+
+- Scroll styles for listbox
+-
+
+#### **Road Map**
+
+- On label hover radio button should render hovered styles

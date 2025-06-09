@@ -1,0 +1,66 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import { DateField } from '../index.ts';
+
+<Meta title="MDX/DateField" component={DateField} />
+
+export const Template = (args) => <DateField {...args} />;
+
+## DateField
+
+This Doc will gives you a brief description of the DateField component.
+
+- DateFields allow users to enter and edit date using a keyboard
+- The simple date input can include day/month/year.
+- Each part of a date value is displayed in an individually editable segment
+
+**DateField Props**
+
+```tsx
+interface DateFieldProps<T extends DateValue> {
+  size?: BasicSize;
+  placeholderValue?: T;
+  isReadOnly?: boolean;
+  isDisabled?: boolean;
+  isRequired?: boolean;
+  autoFocus?: boolean;
+  labelText?: string;
+  labelComponent?: ReactNode;
+  descriptionText?: string;
+  descriptionComponent?: ReactNode;
+  errorMessage?: string;
+  errorMessageComponent?: ReactNode;
+  value?: T;
+  defaultValue?: T;
+  onChange?: (value: MappedDateValue<T>) => void;
+  onFocus?: (e: React.FocusEvent<Element>) => void;
+  onBlur?: (e: React.FocusEvent<Element>) => void;
+}
+```
+
+Follow below code snippet to use DateField.
+
+```tsx
+import { DateField } from '@nx-repo/design-system';
+
+return (
+  <ThemeContextProvider theme={defaultTheme}>
+    <DateField
+      labelText="Date Of Birth"
+      defaultValue={parseDate('2020-02-03')}
+      {...props}
+    />
+  </ThemeContextProvider>
+);
+```
+
+### Version 1.0.0
+
+**Follow storybook stories to know about the cases covered in DateField.**
+
+#### **Compromised things**
+
+- DateField format can't be changed, fixed formate is [dd/mm/yyyy]
+
+#### For More Info About Prop Details
+
+- [React Spectrum DataField](https://react-spectrum.adobe.com/react-spectrum/DateField.html#props)

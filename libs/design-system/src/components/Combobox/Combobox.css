@@ -1,0 +1,12 @@
+.input-field-styles:focus {
+   outline: none;
+}
+
+.input-container-hover-styles {
+   /* TODO: add hover styles */
+}
+
+.input-field-styles::placeholder {
+   color: #667085;
+   font-weight: 400;
+}

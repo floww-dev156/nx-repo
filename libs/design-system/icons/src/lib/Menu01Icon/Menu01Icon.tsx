@@ -4,7 +4,7 @@ import { colors } from '@nx-repo/shared-style-guide';
 
 import { IconPropsType } from '../types';
 
-const Menu01Icon = (props: IconPropsType): React.ReactElement => {
+const Menu01Icon = (props: IconPropsType) => {
   const { width = 24, height = 24, fill = colors['gray-700'], ...rest } = props;
 
   return (

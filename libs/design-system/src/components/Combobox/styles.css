@@ -1,0 +1,39 @@
+.no-results {
+   display: block;
+   padding-top: var(--spectrum-selectlist-option-padding-height);
+   padding-inline-start: var(--spectrum-selectlist-option-padding);
+   font-size: var(--spectrum-selectlist-option-text-size);
+   font-weight: var(--spectrum-selectlist-option-text-font-weight);
+   font-style: italic;
+}
+
+.mobile-combobox {
+   outline: none;
+}
+
+.mobile-input {
+   white-space: nowrap;
+   overflow: hidden;
+   text-overflow: ellipsis;
+}
+
+.mobile-value {
+   vertical-align: middle;
+}
+
+.tray-dialog {
+   display: flex;
+   flex-direction: column;
+   height: 100%;
+   outline: none;
+}
+
+.tray-textfield {
+   flex-shrink: 0;
+   width: initial !important;
+}
+
+.tray-listbox {
+   width: 100%;
+   flex: 1;
+}

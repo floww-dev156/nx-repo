@@ -1,0 +1,59 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import { TimeField } from '../TimeField';
+
+<Meta title="MDX/TimeField" component={TimeField} />
+
+## TimeField
+
+This Doc will gives you a brief description of the TimeField
+component.
+
+**TimeField Props**
+
+```tsx
+interface TimeFieldProps {
+  hourCycle: 12;
+  autoFocus?: boolean;
+  isDisabled?: boolean;
+  label?: string;
+  errorMessage?: string;
+  hint?: React.ReactNode;
+  timeValue?: string;
+  setTimeValue?: (value: string) => void;
+  onFocus?: (e: React.FocusEvent<Element>) => void;
+  onBlur?: (e: React.FocusEvent<Element>) => void;
+}
+```
+
+Follow below code snippet to use Picker.
+
+```tsx
+import { TimeField } from '@nx-repo/design-system';
+
+return <TimeField label="Time" hourCycle={12} />;
+```
+
+```tsx
+Time Input/OutPut Type string 'hh:mm'
+```
+
+Here we are showing TimeValue in 12hrs values and With Toggle AM/PM , which covers both 12 hrs , 24hrs Time Format, So User Must Send TimeValue in 24Hrs Format.
+
+**Follow storybook stories to know about the cases covered in Time Picker.**
+
+### Version 1.0.0
+
+#### **Cases covered**
+
+- Accepting time in string , Format is HH:MM
+- Accepting onBlur , onFocus events, those are triggered with sending the event as arg
+
+#### **Cases not covered**
+
+- Sizes like Sm is not covered
+
+#### **Compromised things**
+
+- Sizes i.e., Sm
+- Focus Ring cannot persist on clicking clock Icon
+- Unable to persist proper placeholder text on action Backspace to time.

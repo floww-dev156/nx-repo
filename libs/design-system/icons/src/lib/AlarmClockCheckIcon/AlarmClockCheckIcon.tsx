@@ -1,0 +1,35 @@
+import * as React from 'react';
+
+import { colors } from '@nx-repo/shared-style-guide';
+
+import { IconPropsType } from '../types';
+
+const AlarmClockCheckIcon = (props: IconPropsType) => {
+  const {
+    width = 16,
+    height = 16,
+    fill = 'none',
+    stroke = colors['orange-600'],
+    ...rest
+  } = props;
+  return (
+    <svg
+      width={width}
+      height={height}
+      viewBox="0 0 16 16"
+      fill={fill}
+      xmlns="http://www.w3.org/2000/svg"
+      {...rest}
+    >
+      <path
+        d="M3.33337 2L1.33337 4M14.6667 4L12.6667 2M4.00004 12.6667L2.66671 14M12 12.6667L13.3334 14M6.00004 9L7.33337 10.3333L10.3334 7.33333M8.00004 14C9.41453 14 10.7711 13.4381 11.7713 12.4379C12.7715 11.4377 13.3334 10.0812 13.3334 8.66667C13.3334 7.25218 12.7715 5.89562 11.7713 4.89543C10.7711 3.89524 9.41453 3.33333 8.00004 3.33333C6.58555 3.33333 5.229 3.89524 4.2288 4.89543C3.22861 5.89562 2.66671 7.25218 2.66671 8.66667C2.66671 10.0812 3.22861 11.4377 4.2288 12.4379C5.229 13.4381 6.58555 14 8.00004 14Z"
+        stroke={stroke}
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+  );
+};
+
+export default AlarmClockCheckIcon;

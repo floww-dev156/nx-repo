@@ -1,0 +1,66 @@
+.swiper {
+   width: 100%;
+   height: 100%;
+}
+
+.swiper-slide {
+   text-align: center;
+   font-size: 18px;
+   font-weight: 500;
+   display: flex !important;
+   justify-content: center;
+   align-items: center;
+   color: #1d2939;
+}
+
+.swiper-active-region {
+   position: absolute;
+   top: 50%;
+   left: 7%;
+   width: 86%;
+   height: 20%;
+   border-radius: 8px;
+   transform: translateY(-50%);
+   background-color: #f2f4f7;
+}
+
+.swiper-gradient-overlay {
+   position: absolute;
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 100%;
+   background: linear-gradient(
+      rgba(255, 255, 255, 1),
+      rgba(255, 255, 255, 0.1) 40%,
+      transparent 40%,
+      transparent 60%,
+      rgba(255, 255, 255, 0.1) 60%,
+      rgba(255, 255, 255, 1)
+   );
+   pointer-events: none;
+   z-index: 10;
+}
+
+.swiper-picker-modal-overlay {
+   position: fixed;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   z-index: 10;
+   background-color: rgba(52, 64, 84, 0.7);
+}
+
+.swiper-picker-modal {
+   position: absolute;
+   background-color: white;
+   overflow: auto;
+   outline: none;
+   border-radius: 16px;
+   -ms-overflow-style: none;
+   scrollbar-width: none;
+}

@@ -8,7 +8,7 @@ interface InfoCircleIconProps {
   fill?: string;
 }
 
-const InfoCircleIcon = (props: InfoCircleIconProps): React.ReactElement => {
+const InfoCircleIcon = (props: InfoCircleIconProps) => {
   const { width = 20, height = 20, fill = colors['red-400'], ...rest } = props;
   return (
     <svg

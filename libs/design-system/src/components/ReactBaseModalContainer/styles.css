@@ -1,0 +1,94 @@
+.body-no-scroll {
+   overflow: hidden;
+}
+
+.modal-animation-properties {
+   animation: none 0.3s ease-in;
+}
+
+/* NOTE: `desktop` modal animations */
+@keyframes open-modal-with-zoom-kf {
+   from {
+      -webkit-transform: scale(0.2);
+      transform: scale(0.2);
+   }
+   to {
+   }
+}
+.open-modal-with-zoom {
+   animation-name: open-modal-with-zoom-kf;
+}
+
+@keyframes close-modal-with-zoom-kf {
+   from {
+   }
+   to {
+      -webkit-transform: scale(0.2);
+      transform: scale(0.2);
+   }
+}
+.close-modal-with-zoom {
+   animation-name: close-modal-with-zoom-kf;
+}
+
+/* NOTE: `mobile` modal animations */
+@keyframes open-modal-with-slide-kf {
+   from {
+      -webkit-transform: translateY(100%);
+      transform: translateY(100%);
+   }
+   to {
+   }
+}
+.open-modal-with-slide {
+   animation-name: open-modal-with-slide-kf;
+}
+
+@keyframes close-modal-with-slide-kf {
+   from {
+   }
+   to {
+      -webkit-transform: translateY(100%);
+      transform: translateY(100%);
+   }
+}
+.close-modal-with-slide {
+   animation-name: close-modal-with-slide-kf;
+}
+
+/* NOTE: modal overlay animations */
+@keyframes open-modal-overlay-kf {
+   from {
+      opacity: 0.2;
+   }
+   to {
+   }
+}
+.open-modal-overlay-with-animation {
+   animation-name: open-modal-overlay-kf;
+}
+
+@keyframes close-modal-overlay-kf {
+   from {
+   }
+   to {
+      opacity: 0.2;
+   }
+}
+.close-modal-overlay-with-animation {
+   animation-name: close-modal-overlay-kf;
+}
+
+.react-base-modal-close-icon-wrapper {
+   user-select: none;
+   position: absolute;
+   width: 18px;
+   height: 18px;
+   right: 10px;
+   background-color: white;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   cursor: pointer;
+   border-radius: 5px;
+}

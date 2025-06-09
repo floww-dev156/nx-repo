@@ -4,7 +4,7 @@ import { colors } from '@nx-repo/shared-style-guide';
 
 import { IconPropsType } from '../types';
 
-const ChevronDownIcon = (props: IconPropsType): React.ReactElement => {
+const ChevronDownIcon = (props: IconPropsType) => {
   const { fill = colors['blue-gray-500'], ...rest } = props;
 
   return (

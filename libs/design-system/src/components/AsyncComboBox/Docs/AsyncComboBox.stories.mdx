@@ -1,0 +1,94 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs'
+
+import { AsyncComboBox } from '../index'
+
+<Meta title='MDX/AsyncComboBox' component={AsyncComboBox} />
+
+export const SampleAsyncComboBox = args => <AsyncComboBox {...args} />
+
+## AsyncComboBox
+
+This Doc will gives you a brief description of the AsyncComboBox component.
+
+**AsyncComboBox Props**
+
+```tsx
+interface ApiProps {
+   isInfiniteScrollable: boolean
+   isApiFailed?: boolean
+   shouldFetchMore?: boolean
+   apiFunction: (page: number, filterText?: string) => Promise<any>
+}
+
+interface AsyncComboBox extends SpectrumComboBoxProps, ComboBoxProps {
+   debounceTime?: number
+   apiProps: ApiProps
+   setShouldInvalidate?: (
+      updatedInValidate: boolean,
+      sectionKey?: string
+   ) => void
+}
+```
+
+### Concepts you have to know before reading the prop
+
+**shouldInvalidate** :
+React spectrum combobox is not supported pagination with sections directly. So we have updated his code to support pagination with sections.
+So if you are using Async Combobox with section then you need to send a prop named `shouldInvalidate` to `Section` which is a function which return a boolean.
+If this function returns true, then you can see the newly pushed items in the same section, if it returns false, then even though your existing section has new items
+those new items will not be re rendered and you can see the change if your api call data contains new section only.
+
+### Props ans how to use
+
+-  **debounceTime** : This prop is used to give debounce time to input change so that our api call will trigger after that debounceTime time.
+   default value is 300.
+-  **setShouldInvalidate** : This props is for setting `shouldInvalidate` which is discussed in the above section. This function will get 2 args, `updatedInValidate` which is a boolean, `sectionKey` which sesctions invalidation is updated, by using thsese
+   You can update and return the shouldInvalidate function value.
+
+-  ApiProps
+-  **isInfiniteScrollable** : This props is to convey that your api is infinite scrollable api or a normal api. if it is true then only you will get pagination on scroll.
+-  **isApiFailed** : This prop is used to render failure screen. If you pass `true` value to this props and the items are empty then you will see a failure screen with retry button.
+-  **shouldFetchMore** : This prop is used to trigger api on next scroll or not. If you send `true` value to this props then on next scroll your api call will be triggered updated scroll count otherwise not.
+-  **apiFunction** : This prop is used to trigger api call. This function gets two args one is `scrollCount` another one is `filterText`. Using these both you have to trigger your api function.
+   and this function should return an array of daya with unique `key` values. The data you are returning here should contain unique keys.
+
+### Critical points
+
+-  The data that you are returning in the apiFunction should contain unique keys. Otherwise you will get white space in popover.
+-  If your api is paginated then in apiFunction return the data which is returned from the api call directly, instead of merging previous paginated and current data.
+-  Update `shouldFetchMore` boolean properly based on scroll count and filter text to trigger necessary apis and to avoid unnecessary api calls.
+-  If your input value is controlled then you should update input in all the possible cases like onChange, onClear, default selected value cases like that.
+-  Give `itemValue` to `Item` component to set filter text on item selection.
+-  If your use case contains sections then convert your api data to sections data by using the util `getSectionFormattedItems` which is exported from `design system`.
+
+### Version 1.0.0
+
+#### **Cases covered**
+
+-  Rendering grouped options using sections and items as children.
+-  Render `No Items View`, `Loading View`,`Failure view` by getting a function in the provider.
+-  Exposing `customOption` prop for different variants of options in the comboBox.
+-  Exposing `enableCustomTrigger` prop for combo box with custom trigger.
+-  Accepting selected key for controlled behavior.
+-  Accepting default selected key for uncontrolled behavior.
+-  Handling sizing with size prop.
+
+#### **Cases not covered**
+
+-  Having one key and selecting another key as the selected key.
+-  Not supporting both controlled and uncontrolled behavior by throwing error.
+-  Not supporting section title customization (groundwork has to be done here).
+-  Selected Value customization.
+-  Keyboard navigation
+   -  up at the first item - focus on the last item
+   -  down at the last item - focus on the first item
+-  Fixed popover position styles.
+
+#### **Compromised things**
+
+-  In custom trigger after selecting value from options it showing only selected value in options.
+-  Placeholder styles are not configured.
+
+## Future Versions plan
+
+-  Resolve Compromises

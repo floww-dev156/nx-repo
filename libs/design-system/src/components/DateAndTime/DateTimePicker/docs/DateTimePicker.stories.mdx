@@ -1,0 +1,74 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import { DateTimePicker } from '../index.ts';
+
+<Meta title="MDX/DateTimePicker" component={DateTimePicker} />
+
+export const Template = (args) => <DateTimePicker {...args} />;
+
+## DateTimePicker
+
+This Doc will gives you a brief description of the DateTimePicker component.
+
+- DateTimePickers combine a DateField and a Calendar popover to allow users to enter or select a date and time value.
+- Each part of a date value is displayed in an individually editable segment
+
+**DateTimePicker Props**
+
+```tsx
+export interface DateTimePickerProps<T extends DateValue> {
+  size?: BasicSize;
+  placeholderText?: string;
+  isReadOnly?: boolean;
+  isDisabled?: boolean;
+  isRequired?: boolean;
+  labelText?: string;
+  labelComponent?: ReactNode;
+  descriptionText?: string;
+  descriptionComponent?: ReactNode;
+  errorMessage?: string;
+  errorMessageComponent?: ReactNode;
+  isOpen?: boolean;
+  defaultOpen?: boolean;
+  minValue?: T;
+  mazValue?: T;
+  value?: T;
+  defaultValue?: T;
+  placement?: Placement;
+  isDateUnavailable?: (date: T) => boolean;
+  onChange?: (value: MappedDateValue<T>) => void;
+  onFocus?: (e: React.FocusEvent<Element>) => void;
+  onBlur?: (e: React.FocusEvent<Element>) => void;
+  showTime?: boolean;
+  hourPlaceholderText?: string;
+  minutePlaceholderText?: string;
+  customFormat?: string;
+  applyButtonText?: string;
+  cancelButtonText?: string;
+}
+```
+
+Follow below code snippet to use DateField.
+
+```tsx
+import { DateTimePicker } from '@nx-repo/design-system';
+
+return <DateTimePicker labelText="Due Date" />;
+```
+
+### Version 1.0.0
+
+**Follow storybook stories to know about the cases covered in DatePicker.**
+
+#### **Compromised things**
+
+- Time fields, such as the input for hours and minutes, do not support right and left arrow navigation.
+- DayPeriod toggler does not supported as input
+- Apply and Cancel buttons are not in i18n strings
+- onEnter, apply button functionality is not supported
+- WeeklyDay (like monday- Mo) etc.
+- As of now, we supported button as trigger and 12 hrs as default time formate
+- Size of time inputs like hours and minutes are not as per figma (because minutes with 'mm' is fitting in the input field, so we increase the input field width)
+
+#### For More Info About Prop Details
+
+- [React Spectrum DataTimePicker](https://react-spectrum.adobe.com/react-spectrum/DatePicker.html#props)

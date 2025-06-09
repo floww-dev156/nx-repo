@@ -1,0 +1,28 @@
+.empty-view-container div {
+   width: 100%;
+}
+
+.combobox-error-view-container {
+   width: 350px !important;
+}
+
+.input-field-styles:focus {
+   outline: none;
+}
+
+.input-container-hover-styles {
+   /* TODO: add hover styles */
+}
+
+.input-field-styles::placeholder {
+   color: #667085;
+   font-weight: 400;
+}
+
+.flex-grow-class {
+   flex-grow: 1;
+}
+
+.mobile-combobox-tray {
+   height: calc(100dvh - 64px) !important;
+}

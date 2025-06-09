@@ -1,0 +1,68 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import { RadioGroup, Radio } from '../index.ts';
+
+<Meta title="MDX/RadioGroup" component={RadioGroup} />
+
+export const Template = (args) => <RadioGroup {...args} />;
+
+## Radio Group
+
+This Doc will gives you a brief description of the radio group
+component.
+
+Follow below code snippet to use RadioGroup and Radio components.
+
+```tsx
+import { Radio, RadioGroup } from '@nx-repo/design-system';
+
+return (
+  <RadioGroup
+    label="Favorite pet Favorite pet"
+    onChange={(value) => console.log(value)}
+    {...props}
+  >
+    <Radio value="dogs">Dog</Radio>
+    <Radio value="cats">Cats 1</Radio>
+  </RadioGroup>
+);
+```
+
+**RadioGroup Props**
+
+```tsx
+interface RadioGroupProps extends AriaRadioGroupProps {
+  children: React.ReactNode;
+  onChange: (value: string) => void;
+  hint?: React.ReactNode;
+  errorMessage?: string;
+  isRequired?: boolean;
+  containerClassName?: string;
+  size: Small | Medium | ExtralSmall;
+}
+```
+
+**Radio Props**
+
+```tsx
+interface RadioProps extends AriaRadioProps {}
+```
+
+### Version 1.0.0
+
+**Follow storybook stories to know about the cases in covered in RadioGroup.**
+
+#### **Compromised things**
+
+- Due to design team dependencies we have compromised in below things.
+
+  - Styles of RadioGroup label
+  - Styles of Radio button label
+  - Styles of Hint and Error with radio group
+
+- Rendering radio buttons horizontally because we are expecting children for radio group so client to has to develope it with a common component.
+  For this we have written a story to render radio buttons horizontally with the title **Horizontal Radio Group** please check it
+- Focus state, here on key press we are directly selecting the radio button (inspired from adobe design system) so here we won't get the focused state.
+
+#### **Road Map**
+
+- On label hover radio button should render hovered styles

@@ -1,0 +1,2 @@
+import TMBaseCheckBoxSelectedIcon from './TMBaseCheckBoxSelectedIcon'
+export default TMBaseCheckBoxSelectedIcon

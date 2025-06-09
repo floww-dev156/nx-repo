@@ -1,0 +1,148 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs';
+import { Picker } from '../index';
+
+<Meta title="MDX/Picker" component={Picker} />
+
+## Picker
+
+This Doc will gives you a brief description of the Picker
+component.
+
+**Picker Props**
+
+```tsx
+ interface PickerProps{
+ defaultSelectedKey?: string
+ selectedKey?:string
+ disabledKeys?:Array<Key>
+ isDisabled?:boolean
+
+ onSelectionChange?:(value:string)⇒void
+ onFocus?:()⇒void
+ onBlur?:()⇒void
+
+ defaultOpen?: boolean
+ size?: ’Small’| ’Medium’ | ‘ExtralSmall’
+ errorMessage?:React.ReactNode
+ hint ?:React.ReactNode
+ label?:React.ReactNode
+ shouldOpenPopoverOnLabelClick?:boolean
+
+ children ?: Item | Section
+ items?:Array<any>
+
+ id?: string
+ dataTestId?: string
+
+}
+```
+
+Follow below code snippet to use Picker.
+
+```tsx
+import {
+  Picker,
+  Item,
+  Section,
+  PickerContextProvider,
+} from '@nx-repo/design-system';
+
+return (
+  <ThemeContextProvider theme={defaultTheme}>
+    <PickerContextProvider>
+      <Picker {...props}>
+        <Item key="A1">A1</Item>
+        <Item key="A2">A2</Item>
+        <Item key="A3">A3</Item>
+      </Picker>
+    </PickerContextProvider>
+  </ThemeContextProvider>
+);
+```
+
+For rendering the custom Value container and Leading icon you should wrap the picker component with `PickerContextProvider` which is exported from `'@nx-repo/design-system'`.
+
+`PickerContextProvider` will accept two methods those are `renderValueContainer` and `renderLeadingIcon`
+
+So if you want to render custom value container then a pass `renderValueContainer` method to `PickerContextProvider`. The method will gets args `valueContainerState`.
+Where valueContainerState contains the **selectedKey** and **rendered**.
+
+```tsx
+export interface ValueContainerState {
+  selectedKey: Key;
+  rendered: React.ReactNode;
+}
+```
+
+If you want to render leading icon in Picker button send a function to `PickerContextProvider`s `renderLeadingIcon` method. In that method you can render your custom leading Icon.
+
+Example for rendering custom value container and leading Icon.
+
+```tsx
+const PickerWithCustomValueContainerAndLeadingIcon = (props) => {
+  const renderLeadingIcon = () => {
+    return <UserIcon />;
+  };
+
+  const renderValueContainer = (state: ValueContainerState) => {
+    return (
+      <div>
+        <h1 style={{ backgroundColor: 'gold' }}>{state.rendered} </h1>
+      </div>
+    );
+  };
+
+  return (
+    <ThemeContextProvider theme={defaultTheme}>
+      <PickerContextProvider
+        renderValueContainer={renderValueContainer}
+        renderLeadingIcon={renderLeadingIcon}
+      >
+        <Picker
+          {...props}
+          placeholder={'select'}
+          label="Picker with error Message"
+          errorMessage={'Oops its an error :)'}
+        >
+          <Item key="A1">A1</Item>
+          <Item key="A2">A2</Item>
+          <Item key="A3">A3</Item>
+        </Picker>
+      </PickerContextProvider>
+    </ThemeContextProvider>
+  );
+};
+```
+
+`key` prop to `Item` will be the `selectedKey` in `onSelectionChange` method. So if you want to update key of your items send key prop to respective item.
+For more details about key customization see the code of `PickerWithDynamicOptionsWithSections` story in storybook.
+
+**Follow storybook stories to know about the cases in covered in Picker.**
+
+### Version 1.0.0
+
+#### **Cases covered**
+
+- rendering grouped options using sections and items as children
+- render custom value container by getting a function in the provider and sending state-related prop to it
+- exposing getListItemKey, and getListItemValue functions for taking specific key as Key.
+- exposing custom option prop for different variants of the dropdown.
+- accepting selected key for controlled behavior.
+- accepting default selected key for uncontrolled behavior.
+- handling sizing with size prop
+
+#### **Cases not covered**
+
+- clicking on the popover option not opening another popover
+- having one key and selecting another key as the selected key
+- not supporting both controlled and uncontrolled behavior by throwing error
+- not supporting section title customization (groundwork has to be done here)
+
+#### **Compromised things**
+
+- border color in focused state
+- onFocus and onBlur events are triggering without sending the event as arg
+
+#### **Road Map**
+
+- border color in focused state

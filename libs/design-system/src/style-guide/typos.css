@@ -1,0 +1,149 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* TODO: Need to write doc for how to add new component in layer or check existing.  */
+@layer components {
+   .text-xl-regular {
+      @apply font-normal text-xl leading-30px;
+   }
+   .text-xl-medium {
+      @apply font-medium text-xl leading-30px;
+   }
+   .text-xl-semibold {
+      @apply font-semibold text-xl leading-30px;
+   }
+   .text-xl-bold {
+      @apply font-bold text-xl leading-30px;
+   }
+
+   .text-lg-regular {
+      @apply text-lg leading-7 font-normal;
+   }
+   .text-lg-medium {
+      @apply text-lg leading-7 font-medium;
+   }
+   .text-lg-semibold {
+      @apply text-lg leading-7 font-semibold;
+   }
+   .text-lg-bold {
+      @apply text-lg leading-7 font-bold;
+   }
+
+   .text-md-regular {
+      @apply text-base leading-6 font-normal;
+   }
+   .text-md-medium {
+      @apply text-base leading-6 font-medium;
+   }
+   .text-md-semibold {
+      @apply text-base leading-6 font-semibold;
+   }
+   .text-md-bold {
+      @apply text-base leading-6 font-bold;
+   }
+
+   .text-sm-regular {
+      @apply text-sm leading-5 font-normal;
+   }
+   .text-sm-medium {
+      @apply text-sm leading-5 font-medium;
+   }
+   .text-sm-semibold {
+      @apply text-sm leading-5 font-semibold;
+   }
+   .text-sm-bold {
+      @apply text-sm leading-5 font-bold;
+   }
+
+   .text-xs-regular {
+      @apply text-xs font-normal leading-18px;
+   }
+   .text-xs-medium {
+      @apply text-xs font-medium leading-18px;
+   }
+   .text-xs-semibold {
+      @apply text-xs font-semibold leading-18px;
+   }
+   .text-xs-bold {
+      @apply text-xs font-bold leading-18px;
+   }
+
+   .display-2xl-regular {
+      @apply font-normal text-7xl leading-90px tracking-negative-0.02em;
+   }
+   .display-2xl-medium {
+      @apply font-medium text-7xl leading-90px tracking-negative-0.02em;
+   }
+   .display-2xl-semibold {
+      @apply font-semibold text-7xl leading-90px tracking-negative-0.02em;
+   }
+   .display-2xl-bold {
+      @apply font-bold text-7xl leading-90px tracking-negative-0.02em;
+   }
+
+   .display-xl-regular {
+      @apply font-normal text-6xl leading-72px tracking-negative-0.02em;
+   }
+   .display-xl-medium {
+      @apply font-medium text-6xl leading-72px tracking-negative-0.02em;
+   }
+   .display-xl-semibold {
+      @apply font-semibold text-6xl leading-72px tracking-negative-0.02em;
+   }
+   .display-xl-bold {
+      @apply font-bold text-6xl leading-72px tracking-negative-0.02em;
+   }
+
+   .display-lg-regular {
+      @apply font-normal text-5xl leading-60px tracking-negative-0.02em;
+   }
+   .display-lg-medium {
+      @apply font-medium text-5xl leading-60px tracking-negative-0.02em;
+   }
+   .display-lg-semibold {
+      @apply font-semibold text-5xl leading-60px tracking-negative-0.02em;
+   }
+   .display-lg-bold {
+      @apply font-bold text-5xl leading-60px tracking-negative-0.02em;
+   }
+
+   .display-md-regular {
+      @apply font-normal text-4xl leading-44px tracking-negative-0.02em;
+   }
+   .display-md-medium {
+      @apply font-medium text-4xl leading-44px tracking-negative-0.02em;
+   }
+   .display-md-semibold {
+      @apply font-semibold text-4xl leading-44px tracking-negative-0.02em;
+   }
+   .display-md-bold {
+      @apply font-bold text-4xl leading-44px tracking-negative-0.02em;
+   }
+
+   .display-sm-regular {
+      @apply font-normal text-3xl leading-38px;
+   }
+   .display-sm-medium {
+      @apply font-medium text-3xl leading-38px;
+   }
+   .display-sm-semibold {
+      @apply font-semibold text-3xl leading-38px;
+   }
+   .display-sm-bold {
+      @apply font-bold text-3xl leading-38px;
+   }
+
+   .display-xs-regular {
+      @apply font-normal text-2xl leading-8;
+   }
+   .display-xs-medium {
+      @apply font-medium text-2xl leading-8;
+   }
+   .display-xs-semibold {
+      @apply font-semibold text-2xl leading-8;
+   }
+   .display-xs-bold {
+      @apply font-bold text-2xl leading-8;
+   }
+}

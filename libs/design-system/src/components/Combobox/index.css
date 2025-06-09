@@ -1,0 +1,15 @@
+.empty-view-container div {
+   width: 100%;
+}
+
+.combobox-error-view-container {
+   width: 350px !important;
+}
+
+.mobile-combobox-tray {
+   height: calc(100dvh - 64px) !important;
+}
+
+.mobile-combobox-text {
+   width: max(50vw, 180px);
+}

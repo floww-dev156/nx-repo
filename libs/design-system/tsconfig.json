@@ -3,6 +3,12 @@
   "include": [],
   "references": [
     {
+      "path": "../shared/style-guide"
+    },
+    {
+      "path": "icons"
+    },
+    {
       "path": "./tsconfig.lib.json"
     }
   ],

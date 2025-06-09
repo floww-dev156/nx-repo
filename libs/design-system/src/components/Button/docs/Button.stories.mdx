@@ -1,0 +1,36 @@
+import { Canvas, Meta, Story } from '@storybook/addon-docs'
+
+import { Button } from '..'
+
+<Meta title='MDX/Button' component={Button} />
+
+export const SampleButton = args => <Button {...args} />
+
+## Button
+
+This Doc will gives you a brief description of the Button component.
+
+**Version v1.0.0**
+
+-  All variants in Primary, Secondary, Tertiary, Link (expect inline links)
+-  All sizes like sm, md, lg, xl, 2xl.
+
+#### **Available subVariants in each Hierarchy**
+
+| hierarchy   | subVariant                                              |
+| ----------- | ------------------------------------------------------- |
+| `PRIMARY`   | PRIMARY, DESTRUCTIVE                                    |
+| `SECONDARY` | PRIMARY, DESTRUCTIVE, DESTRUCTIVE_OUTLINE, GRAY_OUTLINE |
+| `TERTIARY`  | PRIMARY, DESTRUCTIVE, GRAY                              |
+| `LINK`      | PRIMARY, DESTRUCTIVE, GRAY                              |
+
+#### **Backlog**
+
+-  Need to add stories for xl and 2xl Icon Buttons
+-  Need to handle loader sizes based on size (only for 2xl button size is different)
+-  Config update for size based on subVariant
+
+## Future Versions plan
+
+-  Inline link Buttons
+-  Close and menu Icon buttons

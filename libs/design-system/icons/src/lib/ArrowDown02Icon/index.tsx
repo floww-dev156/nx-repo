@@ -4,7 +4,7 @@ import { colors } from '@nx-repo/shared-style-guide';
 
 import { IconPropsType } from '../types';
 
-const ArrowDown02Icon = (props: IconPropsType): React.ReactElement => {
+const ArrowDown02Icon = (props: IconPropsType) => {
   const { height = 20, width = 20, fill = colors['gray-400'], ...rest } = props;
 
   return (

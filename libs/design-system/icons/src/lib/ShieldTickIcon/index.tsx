@@ -1,0 +1,33 @@
+import React from 'react'
+
+interface ShieldTickIconPropTypes {
+   width?: number
+   height?: number
+   stroke?: string
+   fill?: string
+}
+
+const ShieldTickIcon = (props: ShieldTickIconPropTypes) => {
+   const { width = 20, height = 20, stroke = '#1570EF', ...rest } = props
+
+   return (
+      <svg
+         xmlns='http://www.w3.org/2000/svg'
+         width={width}
+         height={height}
+         fill='none'
+         viewBox='0 0 20 20 '
+         {...rest}
+      >
+         <path
+            stroke={stroke}
+            strokeLinecap='round'
+            strokeLinejoin='round'
+            strokeWidth={1.5}
+            d='m7.5 9.583 1.667 1.666 3.75-3.75m3.75 2.5c0 4.09-4.462 7.066-6.085 8.013-.185.107-.277.161-.407.19a.946.946 0 0 1-.35 0c-.13-.029-.222-.083-.407-.19-1.623-.947-6.085-3.922-6.085-8.013V6.014c0-.666 0-1 .11-1.286.095-.253.252-.478.455-.657.23-.203.542-.32 1.166-.554l4.468-1.675c.173-.065.26-.098.349-.11a.833.833 0 0 1 .238 0c.09.012.176.045.35.11l4.467 1.675c.624.234.936.351 1.166.554.203.179.36.404.456.657.109.287.109.62.109 1.286v3.985Z'
+         />
+      </svg>
+   )
+}
+
+export { ShieldTickIcon }

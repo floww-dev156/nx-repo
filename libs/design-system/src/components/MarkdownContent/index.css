@@ -1,0 +1,21 @@
+.markdown-content {
+   font-family: 'Inter' !important;
+   font-size: 14px !important;
+   font-style: normal;
+   font-weight: 500;
+   line-height: 20px;
+   color: #344054;
+}
+
+.markdown-content code {
+   color: #1570ef;
+   font-family: 'Inter' !important;
+}
+
+.markdown-content p {
+   margin-bottom: 14px;
+}
+
+.markdown-content a {
+   color: #1570ef;
+}
