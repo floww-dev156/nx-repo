@@ -1,12 +1,9 @@
 import {
-  Links,
-  Meta,
   Outlet,
-  Scripts,
-  ScrollRestoration,
-  type MetaFunction,
-  type LinksFunction,
-} from 'react-router';
+} from 'react-router-dom';
+
+type MetaFunction = () => Array<{ title?: string; name?: string; content?: string; property?: string; charSet?: string; httpEquiv?: string; [name: string]: any; }>;
+type LinksFunction = () => Array<{ rel: string; href: string; [name: string]: any; }>;
 
 import { AppNav } from './app-nav';
 
@@ -35,14 +32,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <Meta />
-        <Links />
+        <title>New Nx React Router App</title>
+        {/* Add any additional meta tags or links here */}
       </head>
       <body>
         <AppNav />
         {children}
-        <ScrollRestoration />
-        <Scripts />
       </body>
     </html>
   );

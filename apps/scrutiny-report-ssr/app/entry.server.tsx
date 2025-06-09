@@ -6,22 +6,51 @@
 
 import { PassThrough } from 'node:stream';
 
-import type { AppLoadContext, EntryContext } from 'react-router';
-import { createReadableStreamFromReadable } from '@react-router/node';
-import { ServerRouter } from 'react-router';
+// Convert node stream to web stream
+function createReadableStreamFromReadable(nodeReadable: NodeJS.ReadableStream) {
+  return new ReadableStream({
+    start(controller) {
+      nodeReadable.on('data', (chunk) => {
+        controller.enqueue(chunk);
+      });
+      nodeReadable.on('end', () => {
+        controller.close();
+      });
+      nodeReadable.on('error', (err) => {
+        controller.error(err);
+      });
+    },
+  });
+}
+import { StaticRouterProvider, createStaticHandler, createStaticRouter } from 'react-router-dom/server';
 import { isbot } from 'isbot';
 import type { RenderToPipeableStreamOptions } from 'react-dom/server';
 import { renderToPipeableStream } from 'react-dom/server';
+import routes from './routes';
 
 export const streamTimeout = 5_000;
 
-export default function handleRequest(
+export default async function handleRequest(
   request: Request,
   responseStatusCode: number,
   responseHeaders: Headers,
-  routerContext: EntryContext,
-  loadContext: AppLoadContext
+  routerContext: any,
+  loadContext: any
 ) {
+  // Create a static handler for server-side rendering with data loading
+  const { query, dataRoutes } = createStaticHandler(routes);
+  
+  // Execute all loaders for the requested URL
+  const queryResult = await query(request);
+  
+  // If the query returned a response (e.g., a redirect), return it directly
+  if (queryResult instanceof Response) {
+    return queryResult;
+  }
+  
+  // Create a router that can be used for server rendering
+  const router = createStaticRouter(dataRoutes, queryResult);
+  
   return new Promise((resolve, reject) => {
     let shellRendered = false;
     const userAgent = request.headers.get('user-agent');
@@ -34,7 +63,7 @@ export default function handleRequest(
         : 'onShellReady';
 
     const { pipe, abort } = renderToPipeableStream(
-      <ServerRouter context={routerContext} url={request.url} />,
+      <StaticRouterProvider router={router} context={queryResult} />,
       {
         [readyOption]() {
           shellRendered = true;
