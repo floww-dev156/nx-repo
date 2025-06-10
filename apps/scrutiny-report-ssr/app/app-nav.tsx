@@ -1,7 +1,7 @@
 import { useLocation, Link } from 'react-router-dom';
 import './styles/nav.css';
 
-export function AppNav() {
+export function AppNav(): JSX.Element {
   const location = useLocation();
   const isHome = location.pathname === '/';
   const isAbout = location.pathname === '/about';

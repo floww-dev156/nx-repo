@@ -1,16 +1,14 @@
-import { useLoaderData, useNavigation } from 'react-router-dom';
-import { LoadingSpinner } from '../routes';
+import { useLoaderData } from 'react-router-dom';
+import React from 'react';
 
 interface AboutLoaderData {
   message: string;
 }
 
-export function AboutComponent() {
+export function AboutComponent(): JSX.Element {
   const data = useLoaderData() as AboutLoaderData;
-  const navigation = useNavigation();
-  const isLoading = navigation.state === 'loading';
 
-  return <div>{isLoading ? <LoadingSpinner /> : <p>{data.message}</p>}</div>;
+  return <div><p>{data.message}</p></div>;
 }
 
 export default AboutComponent;

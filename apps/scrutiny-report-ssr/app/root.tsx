@@ -26,7 +26,7 @@ export const links: LinksFunction = () => [
   },
 ];
 
-export function Layout({ children }: { children: React.ReactNode }) {
+export function Layout({ children }: { children: React.ReactNode }): JSX.Element {
   return (
     <html lang="en">
       <head>
